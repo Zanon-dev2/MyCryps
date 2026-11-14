@@ -20,14 +20,12 @@ Because it uses a symmetric reflector (just like the original Enigma), **the dec
 
 ## 💻 Usage Example
 
-*(Note: Console prompts are in Portuguese)*
-
 ```text
-quer usar o enyg?[y/n]
+Want to use enyg?[y/n]
 y
-diga 6 numeros de 1 a 9 em sequencia
+type 6 nums from 1 to 9
 3 1 4 1 5 9
-agora digite uma frase
+Write a phrase
 Ola Mundo!
 QXP ZWRKV!
 ```
