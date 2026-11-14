@@ -10,7 +10,7 @@ int s6;
 int coddcod();
 int dnv(){
     char dv;
-    std::cout<<"mais uma vez?[y/n]"<<std::endl;
+    std::cout<<"One more time?[y/n]"<<std::endl;
     std::cin>>dv;
     if(tolower(dv) == 's' || tolower(dv) == 'y'){
         coddcod();
@@ -24,7 +24,7 @@ int coddcod(){
     int g4 = 0;
     
 
-    std::cout<<"agora digite uma frase"<<std::endl;
+    std::cout<<"Write your phrase"<<std::endl;
     std::string in;
     std::cin.ignore();
     std::getline(std::cin, in);
@@ -89,10 +89,10 @@ int coddcod(){
 }
 int main(){
     char y;
-    std::cout<<"quer usar o enyg?[y/n]"<<std::endl;
+    std::cout<<"Want to use enyg?[y/n]"<<std::endl;
     std::cin>>y;
     if(tolower(y) == 'y' || tolower(y) == 's'){
-        std::cout<<"diga 6 numeros de 1 a 9 em sequencia"<<std::endl;
+        std::cout<<"type 6 nums from 1 to 9"<<std::endl;
         std::cin>>s1>>s2>>s3>>s4>>s5>>s6;   
         coddcod(); 
     }
