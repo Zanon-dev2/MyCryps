@@ -29,21 +29,21 @@ pos posicao;
 pos codica;
 void intro(){
     if(nw.func == false){
-        std::cout<<"Quer criptografar ou descriptografar?[C/D]"<<"\n"<<std::endl;
+        std::cout<<"Criptografy or decriptografy?[C/D]"<<"\n"<<std::endl;
     }
     else{
         if(nw.func == true){
             if(tme.way == false){
-                std::cout<<"diga cinco numeros (0 a 26) para definir a posicao inicial dos discos \n";
+                std::cout<<"type 5 nums (0 to 26) to set the discs initial positions \n";
             }
             else{
-                std::cout<<"diga oito numeros (0 a 10) para as chaves \n";
+                std::cout<<"type 8 nums (0 to 10) for the keys \n";
             }
         }
     }
 }
 void in(){
-    std::cout<<"diga sua palavra/frase"<<std::endl;
+    std::cout<<""<<std::endl;
 }
 int enyg(){
     int g1 = posicao.ir1, g2 = posicao.ir2, g3 = posicao.ir3, g4 = posicao.ir4, g5 = posicao.ir5;
@@ -184,7 +184,7 @@ int main(){
     wr vz;
     vz.way = true;
     while (vz.way == true){
-        std::cout<<"quer usar o zyg?[s/n]"<<std::endl;
+        std::cout<<"Wanna use zyg?[s/n]"<<std::endl;
         std::cin>>nw.cd;
         if(tolower(nw.cd) == 'n'){
             vz.way = false;
