@@ -23,7 +23,7 @@ int de(){
     at.lp = false;
     std::reverse(vd.iot.begin(), vd.iot.end());
     if(vd.iot.size() % 2 != 0){
-        std::cout << "Texto criptografado invalido!" << std::endl;
+        std::cout << "Invalid!" << std::endl;
         return 1;
     }
 
@@ -38,7 +38,7 @@ int de(){
             vd.sd += segundo - 1;
         }
     }
-    std::cout<<"decriptado: "<<vd.sd<<std::endl;
+    std::cout<<vd.sd<<std::endl;
     return 0;
 }
 int cr(){
@@ -54,15 +54,15 @@ int cr(){
         }
     }
     std::reverse(vd.sd.begin(), vd.sd.end());
-    std::cout<<"seu texto criptografado: "<<vd.sd<<std::endl;
+    std::cout<<vd.sd<<std::endl;
     return 0;
 }
 void txtout(){
     if(vd.wh == 0){
-        std::cout<<"Ola, deseja criptografar ou descriptografar?[c/d]"<<std::endl;
+        std::cout<<"Wanna criptografy or decriptografy?[c/d]"<<std::endl;
     }
     else if(vd.wh == 1){
-        std::cout<<"insira o texto\n";
+        std::cout<<"Text:\n";
     }
 }
 int main(){
@@ -99,7 +99,7 @@ int main(){
         else{
             de();
         }
-        std::cout<<"de novo? [1 se sim, 0 se nao]"<<std::endl;
+        std::cout<<"One more time? [1 se sim, 0 se nao]"<<std::endl;
         std::cin>>ret.vt;
     }
     return 0;
