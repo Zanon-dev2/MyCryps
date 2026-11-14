@@ -1,42 +1,42 @@
 # 🛡️ ZYG
 
-O **ZYG** é o experimento mais complexo e robusto do repositório **MyCryps**. Ele implementa uma **criptografia híbrida em múltiplas camadas**, combinando um sistema de rotores estilo Enigma de 5 discos, uma cifra polialfabética derivada de Vigenère e inversão de string em um fluxo simétrico reversível.
+**ZYG** is the most complex and robust experiment in the **MyCryps** repository. It implements a **multi-layer hybrid cipher**, combining a 5-rotor Enigma-style machine, a Vigenère-derived polyalphabetic cipher, and string reversal into a reversible symmetric pipeline.
 
-## 🧠 Arquitetura e Funcionamento
+## 🧠 Architecture & How It Works
 
-Para operar o algoritmo, o usuário define **duas chaves numéricas**:
-1. **Posição Inicial dos Discos:** 5 números (de `0` a `26`) que definem o estado inicial dos 5 rotores (`ir1` a `ir5`).
-2. **Chaves de Passo e Deslocamento:** 8 números (de `0` a `10`) que controlam tanto a velocidade de rotação dos discos quanto a chave expandida de Vigenère (`ls1` a `ls8`).
+To run the algorithm, the user defines **two numeric keys**:
+1. **Initial Rotor Positions:** 5 numbers (from `0` to `26`) that set the starting state of the 5 rotors (`ir1` through `ir5`).
+2. **Stepping & Shift Keys:** 8 numbers (from `0` to `10`) that control both the rotor stepping speed and the expanded Vigenère key (`ls1` through `ls8`).
 
-### Fluxo de Criptografia (`[C]`)
-O texto passa por **4 estágios sequenciais**:
-1. **Primeira Passagem nos Rotores (`enyg`):** O texto original atravessa 5 rotores (`rta` a `rte`), bate em um refletor (`rlf`) e retorna pelas tabelas invertidas (`ive` a `iva`). Os discos avançam em cascata usando a sequência de 8 chaves.
-2. **Cifra de Vigenère Expandida (`vege`):** A partir dos 8 números informados pelo usuário, o algoritmo gera matematicamente uma **chave cíclica de 16 posições** (combinando valores individuais e somas cruzadas) para aplicar um deslocamento polialfabético adicional.
-3. **Inversão de String (`rm`):** O resultado da etapa anterior é totalmente invertido de trás para frente (`std::reverse`).
-4. **Segunda Passagem nos Rotores (`enyg`):** O texto invertido passa novamente pela máquina de 5 rotores desde a posição inicial, embaralhando o padrão final.
+### Encryption Pipeline (`[C]`)
+The plaintext goes through **4 sequential stages**:
+1. **First Rotor Pass (`enyg`):** The input passes through 5 rotors (`rta` to `rte`), bounces off a reflector (`rlf`), and returns through the inverted tables (`ive` to `iva`). The rotors cascade forward using the 8-number key sequence.
+2. **Expanded Vigenère Cipher (`vege`):** From the 8 user-provided numbers, the algorithm mathematically generates a **16-position cyclic key** (combining individual values and cross-sums) to apply an additional polyalphabetic shift.
+3. **String Reversal (`rm`):** The output from the previous stage is completely reversed (`std::reverse`).
+4. **Second Rotor Pass (`enyg`):** The reversed text is fed through the 5-rotor machine a second time from the initial rotor positions, further scrambling the final ciphertext.
 
-### Fluxo de Descriptografia (`[D]`)
-Por utilizar operações simétricas e inversas, o algoritmo desfaz cada camada na ordem exata oposta:
-1. **Desfaz a 2ª Passagem nos Rotores (`enyg`)**
-2. **Desinverte a String (`rm`)**
-3. **Aplica a Vigenère Inversa (`revege`):** Subtrai os 16 deslocamentos da chave expandida.
-4. **Desfaz a 1ª Passagem nos Rotores (`enyg`):** Recupera o texto original.
+### Decryption Pipeline (`[D]`)
+Because every stage is symmetric or invertible, decryption reverses each layer in the exact opposite order:
+1. **Undo 2nd Rotor Pass (`enyg`)**
+2. **Un-reverse String (`rm`)**
+3. **Apply Inverse Vigenère (`revege`):** Subtracts the 16 shifts of the expanded key.
+4. **Undo 1st Rotor Pass (`enyg`):** Recovers the original plaintext.
 
-> ☕ **Easter Eggs:** Digitar uma opção inválida na pergunta inicial retorna o código HTTP **418** (*"vai tomar cafe"*), enquanto uma opção inválida no modo de operação retorna **404** (*"ERRO"*).
+> ☕ **Easter Eggs:** Entering an invalid option on the initial prompt returns HTTP code **418** (*"vai tomar cafe"*), while an invalid mode selection returns **404** (*"ERRO"*).
 
-## 💻 Exemplo de Uso
+## 💻 Usage Example
 
 ```text
-quer usar o zyg?[s/n]
+Wanna use ZYG?[s/n]
 s
-Quer criptografar ou descriptografar?[C/D]
+Criptografy or decriptografy?[C/D]
 
 c
-diga cinco numeros (0 a 26) para definir a posicao inicial dos discos 
+type 5 nums (0 to 26) to set the discs initial positions 
 5 12 0 21 8
-diga oito numeros (0 a 10) para as chaves 
+type 8 nums (0 to 10) to the keys
 2 7 4 9 1 6 3 8
 diga sua palavra/frase
 Segredo absoluto!
-[SAÍDA CRIPTOGRAFADA]
+[ENCRYPTED OUTPUT]
 ```
