@@ -43,7 +43,7 @@ void intro(){
     }
 }
 void in(){
-    std::cout<<""<<std::endl;
+    std::cout<<"Your text"<<std::endl;
 }
 int enyg(){
     int g1 = posicao.ir1, g2 = posicao.ir2, g3 = posicao.ir3, g4 = posicao.ir4, g5 = posicao.ir5;
