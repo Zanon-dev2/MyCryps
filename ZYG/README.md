@@ -36,7 +36,7 @@ type 5 nums (0 to 26) to set the discs initial positions
 5 12 0 21 8
 type 8 nums (0 to 10) to the keys
 2 7 4 9 1 6 3 8
-diga sua palavra/frase
+Your text
 Segredo absoluto!
 [ENCRYPTED OUTPUT]
 ```
